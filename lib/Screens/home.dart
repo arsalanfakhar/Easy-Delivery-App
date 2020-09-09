@@ -7,15 +7,23 @@ import 'package:easy_delivery/Constants/fontdata.dart';
 import 'package:easy_delivery/Screens/SearchScreens/dropoffsearch.dart';
 import 'package:easy_delivery/Screens/SearchScreens/pickupsearch.dart';
 import 'package:easy_delivery/Screens/orderdetails.dart';
-import 'package:easy_delivery/Services/googlemap.dart';
+// import 'package:easy_delivery/Services/googlemap.dart';
 import 'package:easy_delivery/Utils/navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_delivery/Widgets/HomeWidgets/dialogbox.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:search_map_place/search_map_place.dart';
+
+// Copyright 2018 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:mapbox_gl/mapbox_gl.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,7 +34,13 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  MapController mapcontroller = MapController();
+  MapboxMapController mapController;
+  // MapController mapcontroller = MapController();
+
+  void _onMapCreated(MapboxMapController controller){
+    mapController=controller;
+  }
+
 //  final List<Marker> _markers = [];
 //  addMarker(coordinate) {
 //    int id = Random().nextInt(100);
@@ -39,7 +53,8 @@ class HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    mapcontroller.getCurrentLocation();
+    // mapcontroller.getCurrentLocation();
+
   }
 
   @override
@@ -52,18 +67,15 @@ class HomeState extends State<Home> {
         body: Stack(
           children: <Widget>[
             Container(
-                child:
-                GoogleMap(
-                    initialCameraPosition: mapcontroller.initialLocation,
-                    myLocationEnabled: true,
-                    myLocationButtonEnabled: false,
-                    mapType: mapcontroller.type,
-                    zoomGesturesEnabled: true,
-                    zoomControlsEnabled: false,
-                    onMapCreated: (GoogleMapController controller) {
-                      mapcontroller.mapController = controller;
-                    })
+                child:MapboxMap(
+                  accessToken: "sk.eyJ1IjoiZWFzeWRlbGl2ZXJ5IiwiYSI6ImNrZXZwMHJ3NzN2OHQyeXBpeGl5bTluNnQifQ.j_FVbifprMohJH_g0W_-fw",
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(target: LatLng(30.3753, 69.3451),zoom: 14),
+                )
+
+
             ),
+
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -188,7 +200,7 @@ class HomeState extends State<Home> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           onPressed: () {
-                            mapcontroller.animateMap();
+                            // mapcontroller.animateMap();
                           }),
                       RawMaterialButton(
                           child: Icon(
@@ -201,7 +213,7 @@ class HomeState extends State<Home> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           onPressed: () {
-                            mapcontroller.animateMap();
+                            // mapcontroller.animateMap();
                           })
                     ]))),
           ],
