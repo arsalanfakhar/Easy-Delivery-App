@@ -70,10 +70,9 @@ class HomeState extends State<Home> {
                 child:MapboxMap(
                   accessToken: "sk.eyJ1IjoiZWFzeWRlbGl2ZXJ5IiwiYSI6ImNrZXZwMHJ3NzN2OHQyeXBpeGl5bTluNnQifQ.j_FVbifprMohJH_g0W_-fw",
                   onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(target: LatLng(30.3753, 69.3451),zoom: 14),
+                  initialCameraPosition: CameraPosition(target: LatLng(30.3753, 69.3451),zoom: 3
+                  ),
                 )
-
-
             ),
 
             Align(
@@ -181,41 +180,41 @@ class HomeState extends State<Home> {
                             HomeDialogBox.show(context);
                           });
                         }))),
-            Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                    margin: EdgeInsets.only(top: 60.h, right: 60.w),
-                    width: 100.w,
-                    //height: 200.h,
-                    child: ListView(
-                        children: <Widget>[
-                      RawMaterialButton(
-                          child: Icon(
-                            Icons.my_location,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          fillColor: Colors.white,
-                          elevation: 10,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          onPressed: () {
-                            // mapcontroller.animateMap();
-                          }),
-                      RawMaterialButton(
-                          child: Icon(
-                            Icons.layers,
-                            color: Colors.blue,
-                            size: 20,
-                          ),
-                          fillColor: Colors.white,
-                          elevation: 10,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          onPressed: () {
-                            // mapcontroller.animateMap();
-                          })
-                    ]))),
+            // Align(
+            //     alignment: Alignment.topRight,
+            //     child: Container(
+            //         margin: EdgeInsets.only(top: 60.h, right: 60.w),
+            //         width: 100.w,
+            //         //height: 200.h,
+            //         child: ListView(
+            //             children: <Widget>[
+            //           RawMaterialButton(
+            //               child: Icon(
+            //                 Icons.my_location,
+            //                 color: Colors.red,
+            //                 size: 20,
+            //               ),
+            //               fillColor: Colors.white,
+            //               elevation: 10,
+            //               shape: RoundedRectangleBorder(
+            //                   borderRadius: BorderRadius.circular(5)),
+            //               onPressed: () {
+            //                 // mapcontroller.animateMap();
+            //               }),
+            //           RawMaterialButton(
+            //               child: Icon(
+            //                 Icons.layers,
+            //                 color: Colors.blue,
+            //                 size: 20,
+            //               ),
+            //               fillColor: Colors.white,
+            //               elevation: 10,
+            //               shape: RoundedRectangleBorder(
+            //                   borderRadius: BorderRadius.circular(5)),
+            //               onPressed: () {
+            //                 // mapcontroller.animateMap();
+            //               })
+            //         ]))),
           ],
         ),
       ),

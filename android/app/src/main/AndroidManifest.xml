@@ -10,9 +10,6 @@
         android:label="easy_delivery"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCkRFuKh0QSWIBaO5Ohu9LftlKdA07aYF4"/>
-
         <meta-data android:name="com.mapbox.token"
             android:value="sk.eyJ1IjoiZWFzeWRlbGl2ZXJ5IiwiYSI6ImNrZXZwMHJ3NzN2OHQyeXBpeGl5bTluNnQifQ.j_FVbifprMohJH_g0W_-fw"/>
 

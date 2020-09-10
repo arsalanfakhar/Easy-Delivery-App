@@ -45,5 +45,7 @@
     <string>sk.eyJ1IjoiZWFzeWRlbGl2ZXJ5IiwiYSI6ImNrZXZwMHJ3NzN2OHQyeXBpeGl5bTluNnQifQ.j_FVbifprMohJH_g0W_-fw</string
     <key>io.flutter.embedded_views_preview</key>
     <true/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Please allow location in order to function the app correctly</string>
 </dict>
 </plist>
